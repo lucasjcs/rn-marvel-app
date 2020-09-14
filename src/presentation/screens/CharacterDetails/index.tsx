@@ -35,6 +35,7 @@ const CharacterDetails: React.FC<LocalProps> = ({ route, navigation }) => {
         <DefaultHeader navigation={navigation} withFavorite character={item} />
         <S.Header>
           <S.CharacterPhoto
+            testID="character-image"
             source={{
               uri: `${item.thumbnail?.path}.${item.thumbnail?.extension}`,
             }}
@@ -44,7 +45,7 @@ const CharacterDetails: React.FC<LocalProps> = ({ route, navigation }) => {
 
       <S.TextArea>
         <S.CharacterName>
-          {item.name}
+          {item?.name}
         </S.CharacterName>
 
         <S.CharacterDescription>
@@ -53,17 +54,26 @@ const CharacterDetails: React.FC<LocalProps> = ({ route, navigation }) => {
       </S.TextArea>
 
       <S.CategoriesArea>
-        <S.CategoryCard onPress={() => navigateToCategory(CategoryType.COMICS)}>
+        <S.CategoryCard
+          testID="comics-buttom"
+          onPress={() => navigateToCategory(CategoryType.COMICS)}
+        >
           <S.CategoryCardText>
             Quadrinhos
           </S.CategoryCardText>
         </S.CategoryCard>
-        <S.CategoryCard onPress={() => navigateToCategory(CategoryType.SERIES)}>
+        <S.CategoryCard
+          testID="series-buttom"
+          onPress={() => navigateToCategory(CategoryType.SERIES)}
+        >
           <S.CategoryCardText>
-            Series
+            Séries
           </S.CategoryCardText>
         </S.CategoryCard>
-        <S.CategoryCard onPress={() => navigateToCategory(CategoryType.EVENTS)}>
+        <S.CategoryCard
+          testID="events-buttom"
+          onPress={() => navigateToCategory(CategoryType.EVENTS)}
+        >
           <S.CategoryCardText>
             Eventos
           </S.CategoryCardText>

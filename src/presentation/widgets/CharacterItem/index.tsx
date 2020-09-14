@@ -23,6 +23,7 @@ const CharacterItem: React.FC<LocalProps> = ({ navigation, item }) => {
       <TouchableOpacity onPress={() => navigation.navigate('CharacterDetails', { item })}>
         <S.CharacterCard isFavorite={isFavorite}>
           <S.CharacterImage
+            testID="character-image"
             source={{
               uri: `${item.thumbnail.path}.${item.thumbnail.extension}`,
             }}
