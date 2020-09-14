@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react';
-import { FlatList, View, ActivityIndicator } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {
+  FlatList, View, ActivityIndicator,
+} from 'react-native';
 
 import { NavigationDefaultProps } from '@/presentation/navigation/NavigationDefaultProps';
 import CategoryDetailsItem from '@/presentation/widgets/CategoryDetailsItem';
 import DefaultHeader from '@/presentation/widgets/DefaultHeader';
 
-import { useCharactersDetails } from '@/hooks/useCharacterDetails';
+import { useMarvelAPI } from '@/hooks/useMarvelAPI';
 import { CategoryRouteParams } from '../CharacterDetails/CategoryType';
 
 import * as S from './styles';
@@ -22,18 +24,27 @@ type Props = {
 type LocalProps = Props & NavigationDefaultProps
 
 const CharacterCategory: React.FC<LocalProps> = ({ route, navigation }) => {
+  const [page, setPage] = useState(1);
   const { categoryType, characterId } = route.params;
 
   const {
-    data, loading, fetchDetails,
-  } = useCharactersDetails(characterId, categoryType.path);
+    result, loading, fetchData, fetchMore,
+  } = useMarvelAPI({
+    characterId,
+    path: categoryType.path,
+  });
 
   useEffect(() => {
-    fetchDetails({
-      limit: 40,
+    fetchData({
+      limit: 30,
       offset: 1,
     });
   }, []);
+
+  function fetchMoreCharacters() {
+    setPage(page + 1);
+    fetchMore(page);
+  }
 
   function renderFooter() {
     if (!loading) {
@@ -58,14 +69,16 @@ const CharacterCategory: React.FC<LocalProps> = ({ route, navigation }) => {
 
       <S.CharactersAreaContent>
         <FlatList
-          data={data?.data.results}
+          data={result}
           renderItem={({ item }) => <CategoryDetailsItem item={item} />}
           keyExtractor={() => String(Math.random())}
           numColumns={2}
           ListFooterComponent={renderFooter}
           refreshing={loading}
-          onEndReachedThreshold={0.5}
+          onEndReachedThreshold={0.9}
+          onEndReached={fetchMoreCharacters}
         />
+
       </S.CharactersAreaContent>
 
     </S.Container>

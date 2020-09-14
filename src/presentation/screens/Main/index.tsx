@@ -5,24 +5,23 @@ import {
 
 import SearchBar from '@/presentation/widgets/SearchBar';
 
-import { useCharacters } from '@/hooks/useCharacters';
-
 import CharacterItem from '@/presentation/widgets/CharacterItem';
 import { DefaultProps } from '@/presentation/models/DefaultProps';
 import useFavorites from '@/hooks/useFavorites';
+import { useMarvelAPI } from '@/hooks/useMarvelAPI';
 import * as S from './styles';
 
 const Main: React.FC<DefaultProps> = ({ navigation }) => {
   const [page, setPage] = useState(1);
   const {
-    loading, characters, fetchCharacters, fetchMore,
-  } = useCharacters();
+    result, loading, fetchData, fetchMore,
+  } = useMarvelAPI();
 
   const { sendStorageToRedux } = useFavorites();
 
   useEffect(() => {
     sendStorageToRedux();
-    fetchCharacters({
+    fetchData({
       limit: 30,
       offset: 1,
     });
@@ -53,12 +52,12 @@ const Main: React.FC<DefaultProps> = ({ navigation }) => {
 
       <S.CharactersAreaContent>
         <FlatList
-          data={characters}
+          data={result}
           renderItem={({ item }) => <CharacterItem navigation={navigation} item={item} />}
           keyExtractor={() => String(Math.random())}
           numColumns={2}
           refreshing={loading}
-          onEndReachedThreshold={0.1}
+          onEndReachedThreshold={0.5}
           onEndReached={fetchMoreCharacters}
           ListFooterComponent={renderFooter}
         />
