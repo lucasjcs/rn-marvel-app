@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, ActivityIndicator, View } from 'react-native';
+import {
+  FlatList, ActivityIndicator, View,
+} from 'react-native';
 
 import SearchBar from '@/presentation/widgets/SearchBar';
 
@@ -13,7 +15,7 @@ import * as S from './styles';
 const Main: React.FC<DefaultProps> = ({ navigation }) => {
   const [page, setPage] = useState(1);
   const {
-    loading, data, fetchCharacters,
+    loading, characters, fetchCharacters, fetchMore,
   } = useCharacters();
 
   const { sendStorageToRedux } = useFavorites();
@@ -21,17 +23,14 @@ const Main: React.FC<DefaultProps> = ({ navigation }) => {
   useEffect(() => {
     sendStorageToRedux();
     fetchCharacters({
-      limit: 10,
+      limit: 30,
       offset: 1,
     });
   }, []);
 
   function fetchMoreCharacters() {
     setPage(page + 1);
-    // fetchCharacters({
-    //   limit: 10,
-    //   offset: page * page,
-    // });
+    fetchMore(page);
   }
 
   function renderFooter() {
@@ -54,14 +53,14 @@ const Main: React.FC<DefaultProps> = ({ navigation }) => {
 
       <S.CharactersAreaContent>
         <FlatList
-          data={data?.data.results}
+          data={characters}
           renderItem={({ item }) => <CharacterItem navigation={navigation} item={item} />}
           keyExtractor={() => String(Math.random())}
           numColumns={2}
-          ListFooterComponent={renderFooter}
           refreshing={loading}
           onEndReachedThreshold={0.1}
           onEndReached={fetchMoreCharacters}
+          ListFooterComponent={renderFooter}
         />
       </S.CharactersAreaContent>
     </S.Container>

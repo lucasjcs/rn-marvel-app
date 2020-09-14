@@ -7,6 +7,7 @@ export interface StyledProps {
 }
 
 const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get('window').width;
 
 export const Container = styled.View`
   flex: 1;
@@ -17,7 +18,7 @@ export const CharacterCard = styled.View`
   display: flex;
   overflow: hidden;
   height: 220px;
-  flex-direction: column;
+  max-width: ${(windowWidth / 2) - 25}px;
   margin-bottom: 10px;
   background: ${colors.darker};
   border-radius: 10px;
