@@ -54,7 +54,7 @@ const Main: React.FC<DefaultProps> = ({ navigation }) => {
         <FlatList
           data={result}
           renderItem={({ item }) => <CharacterItem navigation={navigation} item={item} />}
-          keyExtractor={() => String(Math.random())}
+          keyExtractor={(item) => String(item.id)}
           numColumns={2}
           refreshing={loading}
           onEndReachedThreshold={0.5}

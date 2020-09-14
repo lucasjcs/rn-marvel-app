@@ -71,7 +71,7 @@ const CharacterCategory: React.FC<LocalProps> = ({ route, navigation }) => {
         <FlatList
           data={result}
           renderItem={({ item }) => <CategoryDetailsItem item={item} />}
-          keyExtractor={() => String(Math.random())}
+          keyExtractor={(item) => String(item.id)}
           numColumns={2}
           ListFooterComponent={renderFooter}
           refreshing={loading}
