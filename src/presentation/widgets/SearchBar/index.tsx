@@ -6,9 +6,10 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { TouchableOpacity } from 'react-native';
 
 import { colors } from '@/presentation/assets';
+import { DefaultProps } from '@/presentation/models/DefaultProps';
 import * as S from './styles';
 
-const SearchBar: React.FC = () => {
+const SearchBar: React.FC<DefaultProps> = ({ navigation }) => {
   const [inputText, setInputText] = useState('');
 
   return (
@@ -24,7 +25,12 @@ const SearchBar: React.FC = () => {
           {inputText === '' ? (
             <Feather name="search" size={24} color={colors.white} />
           ) : (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+              navigation.navigate('Search', {
+                search: inputText,
+              });
+            }}
+            >
               <Icon name="send" size={25} color={colors.white} />
             </TouchableOpacity>
           )}

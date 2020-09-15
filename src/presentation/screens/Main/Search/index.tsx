@@ -1,19 +1,32 @@
 import React from 'react';
 import {
-  FlatList, ActivityIndicator, View,
+  FlatList, View, ActivityIndicator,
 } from 'react-native';
 
-import SearchBar from '@/presentation/widgets/SearchBar';
-
-import CharacterItem from '@/presentation/widgets/CharacterItem';
-import { DefaultProps } from '@/presentation/models/DefaultProps';
+import DefaultHeader from '@/presentation/widgets/DefaultHeader';
 import { useMarvelAPI } from '@/hooks/useMarvelAPI';
-import * as S from './styles';
+import { NavigationDefaultProps } from '@/presentation/navigation/NavigationDefaultProps';
+import CharacterItem from '@/presentation/widgets/CharacterItem';
+import * as S from '../styles';
 
-const Main: React.FC<DefaultProps> = ({ navigation }) => {
+type Props = {
+  route: {
+    params: {
+      search: string;
+    }
+  }
+}
+
+type LocalProps = Props & NavigationDefaultProps
+
+const Search: React.FC<LocalProps> = ({ navigation, route }) => {
   const {
     result, loading, fetchMore,
-  } = useMarvelAPI();
+  } = useMarvelAPI({
+    filterParams: {
+      nameStartsWith: route.params.search,
+    },
+  });
 
   function renderFooter() {
     if (!loading) return null;
@@ -27,10 +40,10 @@ const Main: React.FC<DefaultProps> = ({ navigation }) => {
 
   return (
     <S.Container>
-      <SearchBar navigation={navigation} />
+      <DefaultHeader navigation={navigation} />
 
       <S.CharactersTitleText>
-        Personagens
+        Resultado da pesquisa
       </S.CharactersTitleText>
 
       <S.CharactersAreaContent>
@@ -48,4 +61,5 @@ const Main: React.FC<DefaultProps> = ({ navigation }) => {
     </S.Container>
   );
 };
-export default Main;
+
+export default Search;

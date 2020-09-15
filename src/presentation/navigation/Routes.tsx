@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import CharacterDetails from '../screens/CharacterDetails';
 import CharacterCategory from '../screens/CharacterCategory';
 import Tabs from './Tabs';
+import Search from '../screens/Main/Search';
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,7 @@ export default function Routes() {
         <Stack.Screen name="Home" component={Tabs} />
         <Stack.Screen name="CharacterDetails" component={CharacterDetails} />
         <Stack.Screen name="CharacterCategory" component={CharacterCategory} />
+        <Stack.Screen name="Search" component={Search} />
 
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   FlatList, View, ActivityIndicator,
 } from 'react-native';
@@ -24,27 +24,16 @@ type Props = {
 type LocalProps = Props & NavigationDefaultProps
 
 const CharacterCategory: React.FC<LocalProps> = ({ route, navigation }) => {
-  const [page, setPage] = useState(1);
   const { categoryType, characterId } = route.params;
 
   const {
-    result, loading, fetchData, fetchMore,
+    result, loading, fetchMore,
   } = useMarvelAPI({
-    characterId,
-    path: categoryType.path,
+    routeParams: {
+      characterId,
+      path: categoryType.path,
+    },
   });
-
-  useEffect(() => {
-    fetchData({
-      limit: 30,
-      offset: 1,
-    });
-  }, []);
-
-  function fetchMoreCharacters() {
-    setPage(page + 1);
-    fetchMore(page);
-  }
 
   function renderFooter() {
     if (!loading) {
@@ -76,7 +65,7 @@ const CharacterCategory: React.FC<LocalProps> = ({ route, navigation }) => {
           ListFooterComponent={renderFooter}
           refreshing={loading}
           onEndReachedThreshold={0.9}
-          onEndReached={fetchMoreCharacters}
+          onEndReached={fetchMore}
         />
 
       </S.CharactersAreaContent>
