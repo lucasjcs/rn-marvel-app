@@ -25,7 +25,7 @@ describe('Favorites', () => {
     const { getByText } = render(<Favorites navigation={navigation} />);
 
     expect(
-      getByText('Você ainda não possui nenhum personagem favorito.'),
+      getByText('Não há nada por aqui. Sua lista está vazia!'),
     ).toBeTruthy();
   });
 

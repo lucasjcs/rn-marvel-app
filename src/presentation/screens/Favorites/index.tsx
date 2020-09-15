@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import useFavorites from '@/hooks/useFavorites';
 import { FlatList } from 'react-native';
@@ -8,11 +8,7 @@ import EmptyList from '@/presentation/widgets/EmptyList';
 import * as S from './styles';
 
 const Favorites: React.FC<DefaultProps> = ({ navigation }) => {
-  const { favoriteList, sendStorageToRedux } = useFavorites();
-
-  useEffect(() => {
-    sendStorageToRedux();
-  }, []);
+  const { favoriteList } = useFavorites();
 
   return (
     <S.FromMain.Container>

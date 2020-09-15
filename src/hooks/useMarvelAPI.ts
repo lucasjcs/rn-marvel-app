@@ -17,6 +17,7 @@ interface Params {
 export const useMarvelAPI = (params?: Params) => {
   const [result, setResult] = useState<BaseResult[]>([]);
   const [page, setPage] = useState(1);
+
   const { sendStorageToRedux } = useFavorites();
 
   let path = 'characters';

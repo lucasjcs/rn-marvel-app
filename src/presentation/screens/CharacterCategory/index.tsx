@@ -57,11 +57,11 @@ const CharacterCategory: React.FC<LocalProps> = ({ route, navigation }) => {
         </S.HeaderTitle>
       </S.HeaderArea>
 
-      <S.CharactersAreaContent>
-
-        {!result.length && !loading && (
+      {!result.length && !loading && (
         <EmptyList />
-        )}
+      )}
+
+      <S.CharactersAreaContent>
         <FlatList
           data={result}
           renderItem={({ item }) => <CategoryDetailsItem item={item} />}

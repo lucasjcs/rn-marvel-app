@@ -3,12 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import FavoritesActions from '@/store/ducks/Favorites';
 import { FavoriteState } from '@/store/models/FavoriteState';
+import { useEffect } from 'react';
 import { BaseResult } from './BaseResult';
 import { StorageKeys } from './StorageKeys';
 
 const useFavorites = () => {
   const dispatch = useDispatch();
   const favoriteList = useSelector((state: FavoriteState) => state.favorites.characters);
+
+  useEffect(() => {
+    sendStorageToRedux();
+  }, []);
 
   const setItemFavorite = (character: BaseResult) => {
     const isFavorite = favoriteList.some((item) => item.id === character.id);
