@@ -30,6 +30,7 @@ const Favorites: React.FC<DefaultProps> = ({ navigation }) => {
 
       <S.FromMain.CharactersAreaContent>
         <FlatList
+          testID="character-item"
           data={favoriteList}
           renderItem={({ item }) => <CharacterItem navigation={navigation} item={item} />}
           keyExtractor={(item) => String(item.id)}
