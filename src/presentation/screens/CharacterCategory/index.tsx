@@ -8,6 +8,7 @@ import CategoryDetailsItem from '@/presentation/widgets/CategoryDetailsItem';
 import DefaultHeader from '@/presentation/widgets/DefaultHeader';
 
 import { useMarvelAPI } from '@/hooks/useMarvelAPI';
+import EmptyList from '@/presentation/widgets/EmptyList';
 import { CategoryRouteParams } from '../CharacterDetails/CategoryType';
 
 import * as S from './styles';
@@ -57,6 +58,10 @@ const CharacterCategory: React.FC<LocalProps> = ({ route, navigation }) => {
       </S.HeaderArea>
 
       <S.CharactersAreaContent>
+
+        {!result.length && !loading && (
+        <EmptyList />
+        )}
         <FlatList
           data={result}
           renderItem={({ item }) => <CategoryDetailsItem item={item} />}

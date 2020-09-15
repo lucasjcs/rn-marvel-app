@@ -7,6 +7,7 @@ import DefaultHeader from '@/presentation/widgets/DefaultHeader';
 import { useMarvelAPI } from '@/hooks/useMarvelAPI';
 import { NavigationDefaultProps } from '@/presentation/navigation/NavigationDefaultProps';
 import CharacterItem from '@/presentation/widgets/CharacterItem';
+import EmptyList from '@/presentation/widgets/EmptyList';
 import * as S from '../styles';
 
 type Props = {
@@ -45,6 +46,10 @@ const Search: React.FC<LocalProps> = ({ navigation, route }) => {
       <S.CharactersTitleText>
         Resultado da pesquisa
       </S.CharactersTitleText>
+
+      {!result.length && !loading && (
+        <EmptyList />
+      )}
 
       <S.CharactersAreaContent>
         <FlatList

@@ -4,6 +4,7 @@ import useFavorites from '@/hooks/useFavorites';
 import { FlatList } from 'react-native';
 import CharacterItem from '@/presentation/widgets/CharacterItem';
 import { DefaultProps } from '@/presentation/models/DefaultProps';
+import EmptyList from '@/presentation/widgets/EmptyList';
 import * as S from './styles';
 
 const Favorites: React.FC<DefaultProps> = ({ navigation }) => {
@@ -20,12 +21,7 @@ const Favorites: React.FC<DefaultProps> = ({ navigation }) => {
       </S.CharactersTitleText>
 
       {!favoriteList.length && (
-        <S.EmptyList testID="empty-list">
-          <S.EmptyListIcon source={require('@/presentation/assets/images/superhero.png')} />
-          <S.EmptyText>
-            Você ainda não possui nenhum personagem favorito.
-          </S.EmptyText>
-        </S.EmptyList>
+        <EmptyList />
       )}
 
       <S.FromMain.CharactersAreaContent>

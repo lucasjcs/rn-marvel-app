@@ -4,6 +4,8 @@ import { colors } from '@/presentation/assets';
 export const Container = styled.View`
   flex: 1;
   background: ${colors.black};
+  padding-top: 10px;
+  
 `;
 
 export const HeaderArea = styled.View`
@@ -20,4 +22,6 @@ export const HeaderTitle = styled.Text`
 
 export const CharactersAreaContent = styled.View`
   flex: 1;
+  padding: 20px;
+
 `;
