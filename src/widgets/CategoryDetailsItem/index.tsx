@@ -7,7 +7,7 @@ type Props = {
   item: BaseResult
 }
 const CategoryDetailsItem: React.FC<Props> = ({ item }) => (
-  <S.Container>
+  <S.Container testID="category-item">
     <S.CharacterCard>
       <S.CharacterImage
         testID="character-image"

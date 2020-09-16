@@ -35,6 +35,7 @@ const Main: React.FC<DefaultProps> = ({ navigation }) => {
 
       <S.CharactersAreaContent>
         <FlatList
+          testID="main-list"
           data={result}
           renderItem={({ item }) => <CharacterItem navigation={navigation} item={item} />}
           keyExtractor={(item) => String(item.id)}

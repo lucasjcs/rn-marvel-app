@@ -25,11 +25,13 @@ const SearchBar: React.FC<DefaultProps> = ({ navigation }) => {
           {inputText === '' ? (
             <Feather name="search" size={24} color={colors.white} />
           ) : (
-            <TouchableOpacity onPress={() => {
-              navigation.navigate('Search', {
-                search: inputText,
-              });
-            }}
+            <TouchableOpacity
+              testID="search-buttom"
+              onPress={() => {
+                navigation.navigate('Search', {
+                  search: inputText,
+                });
+              }}
             >
               <Icon name="send" size={25} color={colors.white} />
             </TouchableOpacity>

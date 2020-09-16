@@ -6,7 +6,7 @@ import { useRest } from './useRest';
 
 interface Params {
   routeParams?: {
-    characterId: string,
+    characterId: number,
     path: string
   }
   filterParams?: {

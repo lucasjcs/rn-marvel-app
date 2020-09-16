@@ -45,11 +45,11 @@ const DefaultHeader: React.FC<LocalProps> = ({ navigation, withFavorite, charact
         <View>
           {favorite ? (
             <TouchableOpacity testID="change-status-buttom" onPress={changeStatusIcon}>
-              <Icon name="favorite" size={25} color={colors.lighter}> </Icon>
+              <Icon name="favorite" size={45} color={colors.lighter}> </Icon>
             </TouchableOpacity>
           ) : (
             <TouchableOpacity onPress={changeStatusIcon}>
-              <Icon name="favorite-border" size={25} color={colors.white}> </Icon>
+              <Icon name="favorite-border" size={45} color={colors.white}> </Icon>
             </TouchableOpacity>
           )}
         </View>

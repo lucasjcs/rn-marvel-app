@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import CharacterDetails from '@/screens/CharacterDetails';
 import CharacterCategory from '@/screens/CharacterCategory';
-import Search from '@/screens/Main/Search';
+import Search from '@/screens/Search';
 import Tabs from './Tabs';
 
 const Stack = createStackNavigator();

@@ -19,7 +19,7 @@ const CharacterItem: React.FC<LocalProps> = ({ navigation, item }) => {
   const isFavorite = checkFavorite(item.id);
 
   return (
-    <S.Container>
+    <S.Container testID="character-item-list">
       <TouchableOpacity onPress={() => navigation.navigate('CharacterDetails', { item })}>
         <S.CharacterCard isFavorite={isFavorite}>
           <S.CharacterImage

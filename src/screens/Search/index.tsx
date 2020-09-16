@@ -8,7 +8,7 @@ import { useMarvelAPI } from '@/hooks/useMarvelAPI';
 import CharacterItem from '@/widgets/CharacterItem';
 import EmptyList from '@/widgets/EmptyList';
 import { DefaultProps } from '@/models/DefaultProps';
-import * as S from '../styles';
+import * as S from '../Main/styles';
 
 type Props = {
   route: {
@@ -53,6 +53,7 @@ const Search: React.FC<LocalProps> = ({ navigation, route }) => {
 
       <S.CharactersAreaContent>
         <FlatList
+          testID="search-list"
           data={result}
           renderItem={({ item }) => <CharacterItem navigation={navigation} item={item} />}
           keyExtractor={(item) => String(item.id)}

@@ -29,6 +29,7 @@ const CharacterDetails: React.FC<LocalProps> = ({ route, navigation }) => {
   }
 
   return (
+
     <S.Container>
       <S.HeaderArea>
         <DefaultHeader navigation={navigation} withFavorite character={item} />

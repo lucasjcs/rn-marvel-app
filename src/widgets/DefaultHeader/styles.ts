@@ -6,4 +6,5 @@ export const HeaderAction = styled.View`
   margin-top: ${getStatusBarHeight() + 5}px;
   margin-left: 10px;
   justify-content: space-between;
+  align-items: center;
 `;

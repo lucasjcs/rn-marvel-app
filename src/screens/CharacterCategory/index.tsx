@@ -17,7 +17,7 @@ type Props = {
   route: {
     params: {
       categoryType: CategoryRouteParams,
-      characterId: string,
+      characterId: number,
     }
   }
 }
@@ -63,6 +63,7 @@ const CharacterCategory: React.FC<LocalProps> = ({ route, navigation }) => {
 
       <S.CharactersAreaContent>
         <FlatList
+          testID="category-list"
           data={result}
           renderItem={({ item }) => <CategoryDetailsItem item={item} />}
           keyExtractor={(item) => String(item.id)}
