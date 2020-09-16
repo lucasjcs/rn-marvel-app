@@ -1,8 +1,10 @@
 /* eslint-disable import/no-unresolved */
 import axios from 'axios';
 import md5 from 'blueimp-md5';
+import env from '@/../env';
 
-import { PUBLIC_KEY, PRIVATE_KEY } from '@env';
+
+const {PRIVATE_KEY, PUBLIC_KEY} = env;
 
 const hash = md5(1 + PRIVATE_KEY + PUBLIC_KEY);
 
