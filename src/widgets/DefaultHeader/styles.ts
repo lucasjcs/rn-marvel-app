@@ -8,3 +8,8 @@ export const HeaderAction = styled.View`
   justify-content: space-between;
   align-items: center;
 `;
+
+export const FavIconArea = styled.View`
+  left: 100%;
+  padding-right: 10px;
+`;

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { DefaultProps } from '@/models/DefaultProps';
 import { colors } from '@/assets';
 import { BaseResult } from '@/hooks/BaseResult';
 import useFavorites from '@/hooks/useFavorites';
-import { HeaderAction } from './styles';
+import { HeaderAction, FavIconArea } from './styles';
 
 type Props = {
   withFavorite?: boolean
@@ -42,7 +42,7 @@ const DefaultHeader: React.FC<LocalProps> = ({ navigation, withFavorite, charact
       </TouchableOpacity>
 
       {withFavorite && (
-        <View>
+        <FavIconArea>
           {favorite ? (
             <TouchableOpacity testID="change-status-buttom" onPress={changeStatusIcon}>
               <Icon name="favorite" size={45} color={colors.lighter}> </Icon>
@@ -52,7 +52,7 @@ const DefaultHeader: React.FC<LocalProps> = ({ navigation, withFavorite, charact
               <Icon name="favorite-border" size={45} color={colors.white}> </Icon>
             </TouchableOpacity>
           )}
-        </View>
+        </FavIconArea>
       )}
 
     </HeaderAction>
