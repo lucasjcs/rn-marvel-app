@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { render } from '@testing-library/react-native';
-import Favorites from '@/presentation/screens/Favorites';
+import Favorites from '@/screens/Favorites';
 import useFavorites from '@/hooks/useFavorites';
-import { DefaultProps } from '@/presentation/models/DefaultProps';
-import { characterList } from '../../../../__mocks__/mocks/characterList';
+import { DefaultProps } from '@/models/DefaultProps';
+import { characterList } from '@/../__mocks__/mocks/characterList';
 
 jest.mock('@/hooks/useFavorites');
 

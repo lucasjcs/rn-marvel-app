@@ -1,10 +1,9 @@
 import '@testing-library/jest-native/extend-expect';
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
-import CharacterDetails from '@/presentation/screens/CharacterDetails';
-import { NavigationDefaultProps } from '@/presentation/navigation/NavigationDefaultProps';
+import CharacterDetails from '@/screens/CharacterDetails';
 import useFavorites from '@/hooks/useFavorites';
-import { CategoryType } from '@/presentation/screens/CharacterDetails/CategoryType';
+import { CategoryType } from '@/screens/CharacterDetails/CategoryType';
 
 jest.mock('react-redux');
 jest.mock('@/hooks/useFavorites');
@@ -25,7 +24,7 @@ const { route } = {
   },
 };
 
-const { navigation }: NavigationDefaultProps = {
+const { navigation } = {
   navigation: {
     goBack: jest.fn(),
     navigate: jest.fn(),

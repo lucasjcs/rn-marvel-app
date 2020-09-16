@@ -1,8 +1,8 @@
-import { BaseResponse } from '@/helpers/models/BaseResponse';
-import { useRest } from '@/helpers/hooks/useRest';
 import { useState, useEffect } from 'react';
+import { BaseResponse } from '@/models/BaseResponse';
 import { BaseResult } from './BaseResult';
 import useFavorites from './useFavorites';
+import { useRest } from './useRest';
 
 interface Params {
   routeParams?: {

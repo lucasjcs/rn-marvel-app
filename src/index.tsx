@@ -10,16 +10,14 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import store from './store';
 
-import Routes from './presentation/navigation/Routes';
+import Routes from './navigation/Routes';
 
 Icon.loadFont();
 Feather.loadFont();
 
 const App: React.FC = () => (
   <Provider store={store}>
-    <StatusBar
-      barStyle="light-content"
-    />
+    <StatusBar barStyle="light-content" />
     <Routes />
   </Provider>
 );

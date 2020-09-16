@@ -1,12 +1,11 @@
 import MockAdapter from 'axios-mock-adapter';
-
-import { renderHook, act } from '@testing-library/react-hooks';
 import api from '@/services/api';
 
-import { useRest } from '@/helpers/hooks/useRest';
+import { renderHook, act } from '@testing-library/react-hooks';
 
 import { characterList } from '@/../__mocks__/mocks/characterList';
-import { BaseResponse } from '@/helpers/models/BaseResponse';
+import { useRest } from '@/hooks/useRest';
+import { BaseResponse } from '@/models/BaseResponse';
 
 const apiMock = new MockAdapter(api);
 
