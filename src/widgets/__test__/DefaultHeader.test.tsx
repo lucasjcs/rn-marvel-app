@@ -42,7 +42,7 @@ describe('DefaultHeader', () => {
   });
 
   it('should favorite character on click in favorite buttom', () => {
-    const { getByTestId, debug } = render(
+    const { getByTestId } = render(
       <DefaultHeader
         navigation={navigation}
         withFavorite
@@ -52,7 +52,6 @@ describe('DefaultHeader', () => {
 
     fireEvent.press(getByTestId('change-status-buttom'));
 
-    debug();
     expect(setItemFavorite).toHaveBeenCalledWith(character);
   });
 });
