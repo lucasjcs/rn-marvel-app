@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react-native';
+import { render, fireEvent } from '@testing-library/react-native';
 import { BaseResult } from '@/hooks/BaseResult';
 import CharacterItem from '@/widgets/CharacterItem';
 import { DefaultProps } from '@/models/DefaultProps';
@@ -45,6 +45,19 @@ describe('CharacterItem', () => {
       <CharacterItem navigation={navigation} item={characterItem} />,
     );
 
+    expect(getByText('A-Bomb (HAS)')).toBeTruthy();
+  });
+
+  it('should call details on select character', () => {
+    const { getByText } = render(
+      <CharacterItem navigation={navigation} item={characterItem} />,
+    );
+
+    fireEvent.press(getByText('A-Bomb (HAS)'));
+
+    expect(navigation.navigate).toHaveBeenCalledWith('CharacterDetails', {
+      item: characterItem,
+    });
     expect(getByText('A-Bomb (HAS)')).toBeTruthy();
   });
 });
