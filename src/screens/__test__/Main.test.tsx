@@ -65,4 +65,17 @@ describe('Main', () => {
     );
     expect(getByText('Personagens')).toBeTruthy();
   });
+
+  it('should display activity indicator', async () => {
+    // @ts-ignore
+    useMarvelAPI.mockImplementation(() => ({
+      result: [],
+      loading: true,
+      fetchMore,
+    }));
+    const { getByTestId } = render(
+      <Main navigation={navigation} />,
+    );
+    expect(getByTestId('loading-indicator')).not.toBeUndefined();
+  });
 });

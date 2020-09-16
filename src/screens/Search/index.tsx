@@ -33,7 +33,10 @@ const Search: React.FC<LocalProps> = ({ navigation, route }) => {
     if (!loading) return null;
 
     return (
-      <View style={{ marginBottom: 100 }}>
+      <View
+        testID="loading-indicator"
+        style={{ marginBottom: 100 }}
+      >
         <ActivityIndicator size="large" />
       </View>
     );

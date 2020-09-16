@@ -72,4 +72,19 @@ describe('CharacterCategory', () => {
     expect(fetchMore).toHaveBeenCalled();
     expect((await findAllByTestId('category-item')).length).toBe(categoryList.length);
   });
+
+  it('should display activity indicatory', async () => {
+    // @ts-ignore
+    useMarvelAPI.mockImplementation(() => ({
+      result: [],
+      loading: true,
+      fetchMore,
+    }));
+
+    const { getByTestId } = render(
+      <CharacterCategory route={route} navigation={navigation} />,
+    );
+
+    expect(getByTestId('loading-indicator')).not.toBeUndefined();
+  });
 });

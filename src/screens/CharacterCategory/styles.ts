@@ -5,7 +5,11 @@ export const Container = styled.View`
   flex: 1;
   background: ${colors.black};
   padding-top: 10px;
-  
+`;
+
+export const CenteredContainer = styled(Container)`
+  justify-content: center;
+  align-items: center;
 `;
 
 export const HeaderArea = styled.View`

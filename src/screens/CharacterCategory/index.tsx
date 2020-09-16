@@ -42,7 +42,7 @@ const CharacterCategory: React.FC<LocalProps> = ({ route, navigation }) => {
     }
 
     return (
-      <View style={{ marginBottom: 50 }}>
+      <View testID="loading-indicator" style={{ marginBottom: 50 }}>
         <ActivityIndicator size="large" />
       </View>
     );

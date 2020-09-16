@@ -37,15 +37,15 @@ const CharacterDetails: React.FC<LocalProps> = ({ route, navigation }) => {
           <S.CharacterPhoto
             testID="character-image"
             source={{
-              uri: `${item.thumbnail?.path}.${item.thumbnail?.extension}`,
+              uri: `${item.thumbnail.path}.${item.thumbnail.extension}`,
             }}
           />
         </S.Header>
       </S.HeaderArea>
 
       <S.TextArea>
-        <S.CharacterName>
-          {item?.name}
+        <S.CharacterName testID="character-name">
+          {item.name}
         </S.CharacterName>
 
         <S.CharacterDescription>

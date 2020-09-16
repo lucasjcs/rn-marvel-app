@@ -57,4 +57,17 @@ describe('Search', () => {
     );
     expect(getByText('Resultado da pesquisa')).toBeTruthy();
   });
+
+  it('should display activity indicator', async () => {
+    // @ts-ignore
+    useMarvelAPI.mockImplementation(() => ({
+      result: [],
+      loading: true,
+      fetchMore: jest.fn(),
+    }));
+    const { getByTestId } = render(
+      <Search route={route} navigation={navigation} />,
+    );
+    expect(getByTestId('loading-indicator')).not.toBeUndefined();
+  });
 });

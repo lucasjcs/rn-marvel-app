@@ -12,10 +12,10 @@ const CategoryDetailsItem: React.FC<Props> = ({ item }) => (
       <S.CharacterImage
         testID="character-image"
         source={{
-          uri: `${item.thumbnail?.path}.${item.thumbnail?.extension}`,
+          uri: `${item.thumbnail.path}.${item.thumbnail.extension}`,
         }}
       />
-      <S.CharacterName>
+      <S.CharacterName testID="category-title">
         {item.title?.substring(0, 22)}
         {item.title && (item.title?.length > 22 ? '...' : '')}
       </S.CharacterName>

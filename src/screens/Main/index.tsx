@@ -19,7 +19,7 @@ const Main: React.FC<DefaultProps> = ({ navigation }) => {
     if (!loading) return null;
 
     return (
-      <View style={{ marginBottom: 100 }}>
+      <View testID="loading-indicator" style={{ marginBottom: 100 }}>
         <ActivityIndicator size="large" />
       </View>
     );
