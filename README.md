@@ -14,7 +14,7 @@ Olá! Nesta aplicação você terá acesso a um catalogo de personagens da Marve
  - [Reduxsauce](https://github.com/jkeam/reduxsauce) `1.2.0"` para simplificar a lógica de actions, types e creators.
  - [seamless-immutable](https://github.com/rtfeldman/seamless-immutable) `7.1.4` para garantir um estado imutável.
 -	[styled-components](https://styled-components.com/) `5.1.1` para criação de componentes estilizados.
--	[Jest](https://github.com/facebook/jest/) para criação dos testes automatizados.
+-	[Jest](https://github.com/facebook/jest/)`26.4.0` para criação dos testes automatizados.
 -	[React Native Testing Library](https://github.com/callstack/react-native-testing-library) `7.0.2` Biblioteca utilizada para auxiliar na criação dos testes dos componentes.
 ## Metodologia de Desenvolvimento
 
@@ -71,5 +71,5 @@ O padrão de commit adotado foi o [Conventional Commits](https://www.conventiona
 Para garantir o cumprimento da padronização foi utilizado a biblioteca `git-commit-msg-linter`.
 
 
-## Licence
+## 
 Este projeto foi desenvolvido com  :heart: por  [@lucasjcs](https://github.com/lucasjcs) .
