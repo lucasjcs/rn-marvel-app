@@ -36,6 +36,54 @@ A arquitetura do projeto foi pensada para ser simples, a fim de trazer maior leg
   
 Neste projeto decidi por não entrar tão a fundo na arquitetura, evitando incluir complexidade desnecessária em um projeto desse tipo, porém em projetos maiores é extremamente recomendado que a divisão da arquitetura seja seguida rigorosamente.
 
+
+## Organização do projeto
+ A estrutura de pastas do projeto foi organizada de maneira simples, segue a explicação de cada uma delas:
+
+```
+├── src
+│   ├── assets
+│   │   ├── images
+│   │   ├── styles
+│   │   |   ├── **.ts
+│   │   ├── **.ts
+│   ├── hooks
+│   │   ├── __test__
+│   │   |   ├── **.test.ts
+│   │   ├── **.ts
+│   ├── models
+|   |   ├── **.ts
+│   ├── navigation
+|   |   ├── **.tsx
+│   ├── screens
+|   |   ├── __test__
+|   |   |   ├── **.test.tsx
+|   |   ├── models
+|   |   |   ├── **.ts
+│   │   ├── **/*.tsx
+│   ├── services/**.ts
+|   ├── store
+|   |   ├── ducks
+|   |   |   ├── **.ts
+│   |   ├── models
+|   |   |   ├── **.ts
+|   |   ├── **.ts
+│   ├── widgets
+|   |   ├── __test__
+|   |   |   ├── **.test.tsx
+│   │   ├── **/*.tsx
+└──────────────────────
+```
+
+* **assets**: diretório responsável por armazenar arquivos de estilos, imagens, fontes, etc.
+* **hooks**: local onde colocamos a lógica da aplicação, toda integração com redux e apis ficam nos hooks que estão armazenados nesta pasta.
+* **models**: existem algumas pastas com este nome, são as pastas responsáveis por armazenar as interfaces, enums, constants, types que usamos.
+* **navigation**: local onde ficam as rotas da aplicação.
+* **screens**: aqui é onde ficam armazenadas as telas da aplicação.
+* **services**: diretório responsável por armazenar os arquivos de API's.
+* **store**:  diretório onde configuramos o reduces, types e actions do Redux.
+* **widgets**: local onde ficam os componentes compartilhados da aplicação (botões, headers, modais, etc.). 
+
 ## Marvel API
 
 É recomendável que você gere as chaves para acesso à API [clicando aqui](https://developer.marvel.com/). Após gerar suas chaves é só alterá-las no arquivo `env.js` que se encontra na raiz do projeto. Ex:
@@ -97,4 +145,4 @@ O padrão de commit adotado foi o [Conventional Commits](https://www.conventiona
 Para garantir o cumprimento da padronização foi utilizado a biblioteca `git-commit-msg-linter`.
 
 ##
-Este projeto foi desenvolvido com :heart: por [@lucasjcs](https://github.com/lucasjcs) .
+Este projeto foi desenvolvido com :heart: por [@lucasjcs](https://github.com/lucasjcs).
