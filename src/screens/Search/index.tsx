@@ -8,6 +8,7 @@ import { useMarvelAPI } from '@/hooks/useMarvelAPI';
 import CharacterItem from '@/widgets/CharacterItem';
 import EmptyList from '@/widgets/EmptyList';
 import { DefaultProps } from '@/models/DefaultProps';
+import { colors } from '@/assets';
 import * as S from '../Main/styles';
 
 type Props = {
@@ -35,9 +36,9 @@ const Search: React.FC<LocalProps> = ({ navigation, route }) => {
     return (
       <View
         testID="loading-indicator"
-        style={{ marginBottom: 100 }}
+        style={{ marginBottom: 100, height: '100%', marginTop: 20 }}
       >
-        <ActivityIndicator size="large" />
+        <ActivityIndicator size={30} color={colors.primary} />
       </View>
     );
   }
@@ -62,7 +63,7 @@ const Search: React.FC<LocalProps> = ({ navigation, route }) => {
           keyExtractor={(item) => String(item.id)}
           numColumns={2}
           refreshing={loading}
-          onEndReachedThreshold={0.5}
+          onEndReachedThreshold={0.1}
           onEndReached={fetchMore}
           ListFooterComponent={renderFooter}
         />

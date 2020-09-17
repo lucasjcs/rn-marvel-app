@@ -8,6 +8,7 @@ import SearchBar from '@/widgets/SearchBar';
 import CharacterItem from '@/widgets/CharacterItem';
 import { DefaultProps } from '@/models/DefaultProps';
 import { useMarvelAPI } from '@/hooks/useMarvelAPI';
+import { colors } from '@/assets';
 import * as S from './styles';
 
 const Main: React.FC<DefaultProps> = ({ navigation }) => {
@@ -19,8 +20,8 @@ const Main: React.FC<DefaultProps> = ({ navigation }) => {
     if (!loading) return null;
 
     return (
-      <View testID="loading-indicator" style={{ marginBottom: 100 }}>
-        <ActivityIndicator size="large" />
+      <View testID="loading-indicator" style={{ marginBottom: 100, height: '100%', marginTop: 20 }}>
+        <ActivityIndicator size={30} color={colors.primary} />
       </View>
     );
   }

@@ -9,6 +9,7 @@ import DefaultHeader from '@/widgets/DefaultHeader';
 import { useMarvelAPI } from '@/hooks/useMarvelAPI';
 import EmptyList from '@/widgets/EmptyList';
 import { DefaultProps } from '@/models/DefaultProps';
+import { colors } from '@/assets';
 import { CategoryRouteParams } from '../CharacterDetails/CategoryType';
 
 import * as S from './styles';
@@ -43,7 +44,7 @@ const CharacterCategory: React.FC<LocalProps> = ({ route, navigation }) => {
 
     return (
       <View testID="loading-indicator" style={{ marginBottom: 50 }}>
-        <ActivityIndicator size="large" />
+        <ActivityIndicator size={30} color={colors.primary} />
       </View>
     );
   }
@@ -70,7 +71,7 @@ const CharacterCategory: React.FC<LocalProps> = ({ route, navigation }) => {
           numColumns={2}
           ListFooterComponent={renderFooter}
           refreshing={loading}
-          onEndReachedThreshold={0.9}
+          onEndReachedThreshold={0.1}
           onEndReached={fetchMore}
         />
 

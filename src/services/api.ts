@@ -3,8 +3,7 @@ import axios from 'axios';
 import md5 from 'blueimp-md5';
 import env from '@/../env';
 
-
-const {PRIVATE_KEY, PUBLIC_KEY} = env;
+const { PRIVATE_KEY, PUBLIC_KEY } = env;
 
 const hash = md5(1 + PRIVATE_KEY + PUBLIC_KEY);
 
